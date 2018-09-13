@@ -14,25 +14,25 @@ matrix:
         - ELECTRON_CACHE=$HOME/.cache/electron
         - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
 
-    - os: linux
-      services: docker
-      language: node_js
-      node_js:
-        - node
-        - 9
-      env:
-        - ELECTRON_CACHE=$HOME/.cache/electron
-        - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-4.8
-            - icnsutils
-            - graphicsmagick
-            - xz-utils
-            - xorriso
+#    - os: linux
+#      services: docker
+#      language: node_js
+#      node_js:
+#        - node
+#        - 9
+#      env:
+#        - ELECTRON_CACHE=$HOME/.cache/electron
+#        - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
+#      addons:
+#        apt:
+#          sources:
+#            - ubuntu-toolchain-r-test
+#          packages:
+#            - g++-4.8
+#            - icnsutils
+#            - graphicsmagick
+#            - xz-utils
+#            - xorriso
 
 before_cache:
   - rm -rf $HOME/.cache/electron-builder/wine
