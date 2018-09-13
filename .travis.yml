@@ -61,11 +61,11 @@ before_script:
 - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sh -e /etc/init.d/xvfb start; fi
 - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sleep 3; fi
 script:
-- yarn package
 - yarn lint
 - yarn flow
 - yarn test
 - yarn test-e2e
+- cat env | grep -iE 'DEBUG|NODE_|ELECTRON_|YARN_|NPM_|CI|CIRCLE|TRAVIS|APPVEYOR_|CSC_|_TOKEN|_KEY|AWS_|STRIP|BUILD_'
 - |
   if [ "$TRAVIS_OS_NAME" == "linux" ]; then
     docker run --rm \
@@ -89,7 +89,11 @@ deploy:
   api_key:
     secure: OAcLN9TG4vm8wugxl2ywiQCr6qOiPxbKuSdkfIJiUMeR4pJi81n3dczXgQeGPnjfgyOOyaDXR8hhOzrKuPZMQvbxeE/pKOCIDNYs8cQ11pNv8ry7G8Y/Ev8SMztPU5PMRkVhDptDamlCxgxRsAqmOgTKbnfogTlvXksgwE+BtC8bA2OhbJBQzQ0PG/H9ciGxu6eMJrILlYXCjiWHx2/Ex23z5MO336xII4Z0JM9j2pb10wcErFTOu11vSUXmV8nWZDzvsatfueAYy/15uYRfrL1yPxUlFU24nm2jshwDRllW1z4KNRnnhwIVXHyoXCodsSGgfhk+E8PKfZQdjQa81L1zmVkAf54f/UsUL3qK91E/r7IybsSjczEdWj6C8E7DiiCPzjZhSUJ59UfhV3qpIPHRpFwa471ucb4VY8QRojd6RDZSRuWmDvqgo9rwbSsTMSR3sEOV2nKT9bzHUaZ66tdfP9KCr+m5VqS0rRrJ1N8FxGA4AhsaGx025vvVpFwvrdf39SwLFGxTtoet87lCEnLtqmDQ08ts5oz2DpCLKKEYyu3KQ8tuhjG0EIwE/b9uIysH41rKcfPR4yS+qthrDfu+ml+nrE+EHtc1MSQFSby3e8lgUqucN+veHKcERTAcTTfQsETOLZ48/MNxrSWL+5JtPxVevA4yer2kmIK38HM=
   file_glob: true
-  file: release/**/*
+  file: 
+    - *.deb
+    - *.AppImage
+    - *.exe
+    - *.dmg
   skip_cleanup: true
   on:
     repo: florianroulet/electron-react-boilerplate
