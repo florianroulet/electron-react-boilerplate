@@ -95,7 +95,7 @@ script:
 
 deploy:
   provider: releases
-  api_key: "GITHUB OAUTH TOKEN"
+  api_key: "GH_OAUTH_TOKEN"
   file: release/*
   skip_cleanup: true
   on:
