@@ -62,8 +62,8 @@ before_script:
 script:
 - yarn lint
 - yarn flow
-- yarn test
-- yarn test-e2e
+#- yarn test
+#- yarn test-e2e
 - |
   if [ "$TRAVIS_OS_NAME" == "linux" ]; then
     docker run --rm \
