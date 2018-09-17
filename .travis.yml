@@ -43,17 +43,6 @@ cache:
 install:
 - export CXX="g++-4.8"
 - yarn
-- |
-  if [ "$TRAVIS_OS_NAME" == "linux" ]; then
-    /sbin/start-stop-daemon \
-    --start \
-    --quiet \
-    --pidfile /tmp/custom_xvfb_99.pid \
-    --make-pidfile \
-    --exec /usr/bin/Xvfb
-  else
-    :
-  fi
 
 script:
 - yarn lint
