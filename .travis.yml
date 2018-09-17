@@ -16,7 +16,7 @@ matrix:
       language: node_js
       node_js:
         - node
-        - 9
+        - 10
       addons:
         apt:
           sources:
